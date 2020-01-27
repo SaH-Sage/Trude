@@ -103,14 +103,14 @@ nav ul li {
 
 nav ul li a {
   display: block;
-  padding: 0.8em 0.2em;
+  padding: 0.8em 0.1em;
   text-align: center;
   font-size: 1.2em;
   color: #fff;
   background: transparent;
   z-index: 1;
   border-bottom: 0.3em solid transparent;
-  border-top: 0.1em solid transparent;
+  border-top: 0.2em solid transparent;
   -webkit-transition: background 0.3s ease-in-out;
   transition: background 0.3s ease-in-out;
 }
@@ -395,6 +395,7 @@ main div.center {
   text-align: center;
   color: #fff;
   background: #ff0051;
+  min-height: 450px;
 }
 
 main div.center div {
@@ -422,6 +423,15 @@ main div.blue {
 main .info h1, main .info h2, main .info h3, main .info h4 {
   text-align: center;
   color: #2f303a;
+}
+
+.wrap-small {
+  min-width: 330px;
+  max-width: 700px;
+}
+
+.wrap-medium {
+  min-width: 490px;
 }
 
 div.barrier {
@@ -606,15 +616,27 @@ footer div.container div div {
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .padding {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  main div.center div.large p {
+    width: 80%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   div.slideshow-container div.nav-dots {
     bottom: 1.5em;
   }
-  .flex2, .flex3, .flex4 {
-    width: 100%;
+  main div.center {
+    font-size: 1.3em;
   }
-  .s300 {
-    width: 300;
+  main div.center div.large p {
+    width: 95%;
   }
 }
 
