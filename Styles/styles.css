@@ -1,662 +1,245 @@
 html {
-  height: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 * {
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  text-decoration: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
 }
 
-*:before, *:after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-}
+$navPadding : 0.8em;
+$pageWith : 1470px;
+$mainWidth : $pageWith - 50px;  //! Needs to be $pageWithe + margin! 
+$bodypadding : 2em;             //* This is for mobile
 
-body {
-  position: relative;
-  background: #eee;
-  font-size: 18px;
-  min-height: 100%;
-  padding: 0 0 0 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
+$bodyBG : #eee;
+$mainBG : steelblue;
 
-/* Googl fonts*/
-hr {
-  display: block;
-  position: relative;
-  clear: both;
-  width: 95%;
-  height: 0.14em;
-  margin: 1em auto;
-}
+*:before, *:after                           {box-sizing: inherit;                   margin:0;                               padding:0}
+body {position:relative;                   	background: $bodyBG;                    font-size:18px;                         min-height:100%;                        padding: 0 0 0 0;                       font-family: "Helvetica Neue", Arial, sans-serif;} /* Googl fonts*/
 
-br {
-  display: block;
-  position: relative;
-  clear: both;
-  width: 95%;
-  height: 0.14em;
-  margin: 1em auto;
-}
+hr {display: block;                         position: relative;                     clear: both;                            width: 95%;                             height: 0.14em;                          margin: 1em auto;}
+br {display: block;                         position: relative;                     clear: both;                            width: 95%;                             height: 0.14em;                          margin: 1em auto;}
 
-/*9/            /*12/                                   /*9*/
-/*9*/
-/*9*/
-/*9*/
-/*9*/
-/* Double line break means styling of entierly new element
+@import './variables';
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} // TODO @include flexCenter
+@mixin findMe($color1, $color2) {
+    color: $color2;
+    background: $color1;
+} // TODO @include findMe(blue, red)
+                            /*9/            /*12/                                   /*9*/                                   /*9*/                                   /*9*/                                   /*9*/                                   /*9*/                     
+  /* Double line break means styling of entierly new element
       Line brek means new pice of styling of curent group
         } means jumping back/lower is not child or directly connected to above
           if no } above, this style is directly connected to above (childe or chare same properties)
-  */
-/* Phi: 1.61803398875    -   0.80901699437    -    1 - phi = 0.61803398875  --> /2 --> 30.9016994375 (for padding both)*/
-/*9/            /*12/                                   /*9*/
-/*9*/
-/*9*/
-/*9*/
-/*9*/
-nav {
-  display: block;
-  height: none;
-  background: #19be9d;
-  margin: 0 0 0 0;
-  position: -webkit-sticky;
-  position: sticky;
-  /* Fiks this*/
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  z-index: 1;
-}
-
-nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 1323px;
-  margin: 0 auto;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-nav ul li {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-nav ul li a {
-  display: block;
-  padding: 0.8em 0.1em;
-  text-align: center;
-  font-size: 1.2em;
-  color: #fff;
-  background: transparent;
-  z-index: 1;
-  border-bottom: 0.3em solid transparent;
-  border-top: 0.2em solid transparent;
-  -webkit-transition: background 0.3s ease-in-out;
-  transition: background 0.3s ease-in-out;
-}
-
-nav ul li a:hover {
-  background: #00a2ff;
-}
-
-nav ul .active a {
-  border-bottom: 0.3em solid #00a2ff;
-}
-
-div.slideshow-container {
-  position: relative;
-  display: block;
-  width: 100%;
-  background: steelblue;
-  /* The dots/bullets/indicators */
-  /* Next & previous buttons */
-  /* Position the "next button" to the right */
-  /* On hover, add a black background color with a little bit see-through */
-}
-
-div.slideshow-container div {
-  -webkit-transition: margin 0.5s ease-in-out;
-  transition: margin 0.5s ease-in-out;
-}
-
-div.slideshow-container div.nav-dots {
-  position: absolute;
-  width: 100%;
-  bottom: 2em;
-  text-align: center;
-  font-size: 1em;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-div.slideshow-container div.nav-dots .dot {
-  height: 1em;
-  width: 1em;
-  margin: 0 0.2em;
-  background: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-transition: background-color 0.6s ease;
-  transition: background-color 0.6s ease;
-}
-
-div.slideshow-container div.nav-dots .active {
-  background-color: #567;
-}
-
-div.slideshow-container .prev, div.slideshow-container .next {
-  position: absolute;
-  font-size: 1.5em;
-  padding: 1em;
-  margin-top: -1.715em;
-  border-radius: 0 0.2em 0.2em 0;
-  cursor: pointer;
-  color: white;
-  font-weight: bold;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  -webkit-transition: 0.4s background ease;
-  transition: 0.4s background ease;
-}
-
-div.slideshow-container .next {
-  right: 0;
-  border-radius: 0.2em 0 0 0.2em;
-}
-
-div.slideshow-container .prev:hover, div.slideshow-container .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-div.slideshow-container .slide-0 {
-  margin: 0 0 0 0;
-}
-
-div.slideshow-container .slide-1 {
-  margin: 0 0 0 -100%;
-}
-
-div.slideshow-container .slide-2 {
-  margin: 0 0 0 -200%;
-}
-
-div.slideshow-container .slide-3 {
-  margin: 0 0 0 -300%;
-}
-
-div.slideshow-container .slide-4 {
-  margin: 0 0 0 -400%;
-}
-
-div.slideshow-container .slide-5 {
-  margin: 0 0 0 -500%;
-}
-
-div.slideshow-container .slide-6 {
-  margin: 0 0 0 -600%;
-}
-
-div.slideshow-container .slide-7 {
-  margin: 0 0 0 -700%;
-}
-
-div.slideshow-container .slide-8 {
-  margin: 0 0 0 -800%;
-}
-
-div.slideshow-container .slide-9 {
-  margin: 0 0 0 -900%;
-}
-
-div.slideshow-container .slide-10 {
-  margin: 0 0 0 -1000%;
-}
-
-div.slideshow-container .slide-11 {
-  margin: 0 0 0 -1100%;
-}
-
-div.slideshow-container .slide-12 {
-  margin: 0 0 0 -1200%;
-}
-
-div.slideshow-container .slide-13 {
-  margin: 0 0 0 -1300%;
-}
-
-div.container-slide-main {
-  height: 60vh;
-  overflow: hidden;
-}
-
-div.container-slide-main .prev, div.container-slide-main .next {
-  top: 50%;
-}
-
-/* Specific for landing page */
-div.slideshow {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 400%;
-}
-
-div.slideshow div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  -webkit-transition: margin 700ms;
-  transition: margin 700ms;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-}
-
-div.slideshow img {
-  height: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-main {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-  text-align: justify;
-  background: inherit;
-  color: #000;
-}
-
-main > div:first-child {
-  padding-top: 2em;
-}
-
-main div.section {
-  width: 100%;
-  padding-left: calc(50% - 1470px / 2);
-  padding-right: calc(50% - 1470px / 2);
-}
-
-main a {
-  color: #19be9d;
-  text-decoration: underline;
-}
-
-main a:hover {
-  -webkit-text-decoration: dotted underline;
-          text-decoration: dotted underline;
-}
-
-main h1 {
-  font-size: 3em;
-  padding-bottom: 0.5em;
-  text-decoration: underline;
-}
-
-main h1, main h2, main h3, main h4, main h5 {
-  text-align: center;
-}
-
-main p {
-  padding: 1em 0;
-}
-
-main p:first-child {
-  padding: 0 0 1em;
-}
-
-main p + hr, main p + br {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-main hr + p, main br + p {
-  padding-top: 0;
-  margin-top: 0;
-}
-
-main div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-main div div {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-main div div {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-main div div {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-main div.padding > div {
-  padding: 2em 1em;
-}
-
-main div.center {
-  position: relative;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  width: 100%;
-  padding: 30.9016994375% 0;
-  font-size: null;
-  text-align: center;
-  color: #fff;
-  background: #ff0051;
-  min-height: 450px;
-}
-
-main div.center div {
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-main div.center div.large p {
-  width: 61.803398875%;
-  margin: 0 auto;
-}
-
-main div.center h1, main div.center h2, main div.center h3, main div.center p {
-  padding: 0.1em 1em 0.3em;
-}
-
-main div.blue {
-  background: steelblue;
-  color: #fff;
-}
-
-main .info h1, main .info h2, main .info h3, main .info h4 {
-  text-align: center;
-  color: #2f303a;
-}
-
-.wrap-small {
-  min-width: 330px;
-  max-width: 700px;
-}
-
-.wrap-medium {
-  min-width: 490px;
-}
-
-div.barrier {
-  width: 100%;
-  padding: 2.5em 0;
-  background: #19be9d;
-  clear: both;
-}
-
-div.barrier + div.padding {
-  padding-top: 1em;
-}
-
-.padding + div.barrier {
-  margin-top: 0;
-}
-
-.x1 {
-  font-size: 1em;
-}
-
-.x15 {
-  font-size: 1.5em;
-}
-
-.x16 {
-  font-size: 1.6em;
-}
-
-.x17 {
-  font-size: 1.7em;
-}
-
-.x18 {
-  font-size: 1.8em;
-}
-
-.x19 {
-  font-size: 1.9em;
-}
-
-.x2 {
-  font-size: 2em;
-}
-
-.x25 {
-  font-size: 25em;
-}
-
-.flex1 {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.flex2 {
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
-}
-
-.flex3 {
-  -webkit-box-flex: 3;
-      -ms-flex: 3;
-          flex: 3;
-}
-
-.flex4 {
-  -webkit-box-flex: 4;
-      -ms-flex: 4;
-          flex: 4;
-}
-
-.flex5 {
-  -webkit-box-flex: 5;
-      -ms-flex: 5;
-          flex: 5;
-}
-
-.flex6 {
-  -webkit-box-flex: 6;
-      -ms-flex: 6;
-          flex: 6;
-}
-
-.flex7 {
-  -webkit-box-flex: 7;
-      -ms-flex: 7;
-          flex: 7;
-}
-
-.flex8 {
-  -webkit-box-flex: 8;
-      -ms-flex: 8;
-          flex: 8;
-}
-
-img.padding {
-  margin: 1em 0 2em;
-}
-
-footer {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  bottom: 0;
-  left: 0;
-  margin: 1.5em 0 0 0;
-  background: #333;
-  width: 100%;
-  min-height: 12em;
-  padding: 0;
-  font-size: 1em;
-  color: #fff;
-  line-height: 1.21em;
-}
-
-footer:hover {
-  background: #00a2ff;
-}
-
-footer h1, footer h2, footer h3, footer h4, footer h5 {
-  padding: 0 1em 1em 0;
-}
-
-footer p {
-  padding: 0 1em 1em 0;
-}
-
-footer div.container {
-  width: 1470px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 4em auto 1.5em auto;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 0 1em;
-}
-
-footer div.container div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  color: #fff;
-}
-
-footer div.container div div {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-@media screen and (max-width: 1500px) {
-  main div.section {
-    width: 100%;
-  }
-  main div.section > div {
-    padding-left: 2em;
-    padding-right: 2em;
-  }
-  main div.section > div.center {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  nav ul {
-    width: 90vw;
-  }
-  footer div.container {
-    padding: 0 2em;
-  }
-  footer div.container > div {
-    padding: 0 1em;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .padding {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-  }
-  main div.center div.large p {
-    width: 80%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  div.slideshow-container div.nav-dots {
-    bottom: 1.5em;
-  }
-  main div.center {
-    font-size: 1.3em;
-  }
-  main div.center div.large p {
-    width: 95%;
-  }
-}
-
-.gold {
-  color: #19be9d;
-  background: gold;
-}
-
-.blue {
-  color: #ff0051;
-  background: blue;
-}
-
-.green {
-  color: yellow;
-  background: green;
-}
-
-.red {
-  color: #fff;
-  background: #ff0051;
-}
-/*# sourceMappingURL=styles.css.map */
+  *//* Phi: 1.61803398875    -   0.80901699437    -    1 - phi = 0.61803398875  --> /2 --> 30.9016994375 (for padding both)*/
+
+
+                            /*9/            /*12/                                   /*9*/                                   /*9*/                                   /*9*/                                   /*9*/                                   /*9*/   
+
+//*-------------------------- Nav --------------------------*/ 
+
+nav                                         {display: block;                        height: none;                           background: $turquoise;                 margin: 0 0 0 0;                        position: sticky; /* Fiks this*/        user-select: none;
+    ul{                                      display: flex;                         width: 0.9 * $pageWith;                 margin: 0 auto;                         flex-direction: row;                    justify-content: space-around;
+    li                                      {flex: 1;                               
+        a                                   {display: block;                        padding: $navPadding 0.1em;             text-align: center;                     font-size: 1.2em;                       color: #fff;                          background: transparent;                           
+                                            z-index: 1;                             border-bottom: 0.3em solid transparent; border-top: 0.2em solid transparent;    transition: background 0.3s ease-in-out;
+        &:hover                             {background: $blue;}
+        }
+    }
+    .active a                              {border-bottom: 0.3em solid $blue;}
+    } // End of ul
+
+    //box-shadow: 0px 0px 2px 4px rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+
+//*-------------------------- Slideshow --------------------------*/ 
+div.slideshow-container                     {position: relative;                    display: block;                         width: 100%;                            background: steelblue;
+    div                                     {transition: margin 0.5s ease-in-out;}
+    /* The dots/bullets/indicators */
+    div.nav-dots                            {position: absolute;                    width: 100%;                            bottom: 2em;                            text-align:center;                      font-size: 1em;                         user-select: none; ;
+        .dot                                {height: 1em;                           width: 1em;                             margin: 0 0.2em;                        background: #bbb;                     border-radius: 50%;
+                                             display: inline-block;                 cursor: pointer;                        transition: background-color 0.6s ease;
+        }
+        .active {background-color: #567 ;}
+    }
+    /* Next & previous buttons */
+    .prev, .next                            {position: absolute;                    font-size: 1.5em;                       padding: 1em;                           margin-top: -1.715em;                   border-radius: 0 0.2em 0.2em 0;                   
+                                            cursor: pointer;                        color: white;                         font-weight: bold;                      user-select: none;                      transition: 0.4s background ease;
+    }
+    /* Position the "next button" to the right */
+    .next                                   {right: 0;                              border-radius: 0.2em 0 0 0.2em;}
+      /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover                {background-color: rgba(0,0,0,0.8);}
+
+    .slide-0 {margin: 0 0 0 0}        .slide-1 {margin: 0 0 0 -100%}    .slide-2 {margin: 0 0 0 -200%}    .slide-3 {margin: 0 0 0 -300%}    .slide-4 {margin: 0 0 0 -400%}    .slide-5 {margin: 0 0 0 -500%}    .slide-6 {margin: 0 0 0 -600%}
+    .slide-7 {margin: 0 0 0 -700%}    .slide-8 {margin: 0 0 0 -800%}    .slide-9 {margin: 0 0 0 -900%}    .slide-10{margin: 0 0 0 -1000%}   .slide-11{margin: 0 0 0 -1100%}   .slide-12{margin: 0 0 0 -1200%}   .slide-13{margin: 0 0 0 -1300%}
+}
+//TODO Make it so that image is veticly aligned in center, so that if it is to hight it "zoomes" in
+div.container-slide-main                    {height: 60vh;                          overflow: hidden;                     
+    .prev, .next                            {top: 50%;}
+}
+ /* Specific for landing page */
+div.slideshow                               {display: flex;                         height: 100%;                           width: 400%;                            
+    div                                     {display: flex;                         height: 100%;                           width: 100%;                            transition: margin 700ms;                        
+        transition: all .3s;}
+
+    img {height: 100%; max-width: 100%;     margin: 0 auto;} 
+}
+
+
+//*-------------------------- Main --------------------------*/ 
+
+//TODO Lag en Main-Landing som har brede "kort" (ha rødt kort være width: 100%); se på Pavlok - https://pavlok.com/ - https://better.com/
+//TODO Integrer nav med sticky plaserrt som http://www.omtbbl.no/ 
+
+main                                        {position: relative;                    display: flex;                          flex-direction: column;                 width: 100%;                            text-align: justify; //! Yes or NO?                                                   
+                                            background: inherit;                    min-height: 80vh;                       color: #000; // height: null;
+    & > div:first-child                     {padding-top: 2em;}                                  
+    //! Need to fiks; margin need background color
+    div.section                             {width: 100%;                           padding-left: calc(50% - 1470px / 2);   padding-right: calc(50% - 1470px / 2);}      //! Needs to be $pageWith -!! SCSS canot convert variable?!
+    a                                       {color: $turquoise;                     text-decoration: underline;
+        &:hover                             {text-decoration: dotted underline;}
+    }
+    h1                                      {font-size: 3em;                        padding-bottom: 0.5em;                  text-decoration: underline;}
+    h1,h2,h3,h4,h5                          {text-align: center;}
+    p                                       {padding: 1em 0;}
+    //-Fiksing padding anomalies
+    p:first-child                           {padding: 0 0 1em;}
+    p + hr, p + br                          {margin-top: 0;                         padding-top: 0;}                        hr + p, br + p {padding-top: 0;         margin-top: 0;}
+    div                                     {display: flex;                         flex-direction: row;
+        div                                 {flex-direction: column;}
+            div                             {flex-direction: row;}
+                div                         {flex-direction: column;}
+    }
+    div.padding > div                       {padding: 2em 1em;}
+
+    //TODO lag det slik at en kun slenger på forhold for å endre froholdet (høyde bredde - burde kun være å endre paddingen - Fint om det lett fikser evt. bruk av section)
+    div.center                              {position: relative;                    flex-direction: row;                    width: 100%;                            padding: 30.9016994375% 0;              font-size: null;                        text-align: center;
+                                            @include findMe($red, #fff );         min-height: 450px;
+        div                                 {position: absolute;                    width: 100%;                            top: 50%;                               transform:translateY(-50%);}
+        div.large p                         {width: 61.803398875%;                  margin: 0 auto;}
+        
+        h1,h2,h3,p                          {padding: 0.1em 1em 0.3em;}
+    }
+
+    div.blue                                {background: steelblue;               color: #fff;}
+
+    .info h1,.info h2,.info h3,.info h4     {text-align: center;                    color: $gray;}
+}
+
+//* Rules for flex-ewwrapping - the flex-wrapping is in media-width
+.wrap-small {min-width: 330px;              max-width: 700px;} //! min-width can not make wider than when flex-wrap is introduced
+.wrap-medium{min-width: 490px;}
+
+div.barrier                                 {width: 100%;                           padding: 2.5em 0;                       background: $turquoise;                 clear: both;}
+div.barrier + div.padding                   {padding-top: 1em;}
+.padding + div.barrier                      {margin-top: 0;}    //- Fikses double padding
+
+        //*----- Html class shortcuts -- //
+.x1     {font-size: 1em;}.x15{font-size: 1.5em;}.x16{font-size: 1.6em;} .x17{font-size: 1.7em;} .x18{font-size: 1.8em;} .x19{font-size: 1.9em;} .x2 {font-size: 2em;}   .x25 {font-size: 25em;}
+.flex1  {flex: 1;}       .flex2 {flex: 2}       .flex3  {flex: 3}       .flex4 {flex: 4}        .flex5 {flex: 5}        .flex6 {flex: 6}        .flex7 {flex: 7}        .flex8 {flex: 8}
+
+img.padding                                 {margin: 1em 0 2em;} //;object-fit: cover;}
+
+form                                        {width: 70%;                            margin: 0 auto;                         padding: 0.5em 1em;                     font-size: 1.5em;                       @include findMe($blue, white);
+                                            border-radius: 5px;
+    input[type=text], select, textarea      {width: 100%;
+        padding: 0.8em 1em;
+        margin: 0.5em 0 1.2em 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 0.6em;
+      }
+      option                                {padding: 5pxm;}
+      option[value="none"]                  {background-color: #ccc;}
+      
+      button {
+        width: 100%;
+        font-size: 0.6em;
+        background-color: #45a049;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      
+        &:hover {
+            background-color: #4CAF50;
+      }  
+    }
+}
+
+    // @import './main';
+
+
+//*-------------------------- Footer --------------------------*/ 
+
+footer                                      {position: relative;                    display: flex;                          bottom: 0;                              left:0;                                 margin: 1.5em 0 0 0;                    background: #333;  
+                                             width: 100%;                           min-height: 12em;                       padding: 0;                             font-size: 1em;	                        color: #fff;                          line-height: 1.21em;
+    &:hover {
+        background: $blue;
+    }
+
+    h1,h2,h3,h4,h5                          {padding: 0 1em 1em 0;}
+    p                                       {padding: 0 1em 1em 0;}
+    div.container                           {width: $pageWith;                      display: flex;                          margin: 4em auto 1.5em auto;            flex-direction: column;                 padding: 0 1em;
+        div                                 {display: flex;                         flex-direction: row;                    color: #fff;
+            div                             {flex-direction: column;}
+        }
+    }
+}
+@media screen and (max-width:1500px){
+    main div.section                        {width: 100%;
+        & > div                             {padding-left: $bodypadding;            padding-right: $bodypadding;}
+        & > div.center                      {padding-left: 0;                       padding-right: 0;}  //Not ideal, but fikses it
+    }
+    nav ul                                  {width: 90vw;}
+    footer div.container                    {padding: 0 $bodypadding;
+        & > div                             {padding: 0 1em;}
+    }
+}
+@media screen and (max-width:1024px){
+
+    .padding        {flex-wrap: wrap;       justify-content: space-around}  
+    
+    main div.center {
+        div.large p                         {width: 80%;}
+    }  
+}
+@media screen and (max-width:768px){
+    div.slideshow-container div.nav-dots    {bottom: 1.5em}
+
+    //TODO zoom out padding
+    main div.center {
+        font-size: 1.3em;
+        div.large p                         {width: 95%;}
+    }  
+
+}
+
+
+//*-------------------------- Testing --------------------------*/ 
+
+.gold {@include findMe($gold, $turquoise)}
+.blue {@include findMe(blue, $red)}
+.green {@include findMe(green, yellow)}
+.red {@include findMe($red, #fff)}
