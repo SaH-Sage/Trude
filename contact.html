@@ -11,40 +11,49 @@
     <nav class="nav">
       <ul class="">
         <li>
-          <a href="/Trude/index.html">Hjem</a>
+          <a href="/Trudeindex.html">Hjem</a>
         </li>
         <li>
-          <a href="/Trude/about.html">Treninger</a>
+          <a href="/Trudeinformasjon.html">Treninger</a>
         </li>
         <li>
-          <a href="/Trude/treninger">Om oss</a>
+          <a href="/Trudetrening.html">Om oss</a>
         </li>
         <li class="active">
-          <a href="/Trude/contact.html">Kontakt oss</a>
+          <a href="/Trudekontakt.html">Kontakt oss</a>
         </li>
       </ul>
     </nav>
     <main>
       <div>
         <form id="gform" method="POST" class="pure-form pure-form-stacked" data-email="from_email@example.com" action="">
-          <label for="name">Navn: </label>
-          <input id="name" type="text" name="name" placeholder="Navnet du vil bli besvart med" />
-
-          <!-- <select id="ski_skill" name="ski_skill">
-            <option value="none" selected disabled>-- Velg ferdighetsnivå --</option>
-            <option value="ingen">Har alldri gått på ski</option>
-            <option value="prøvd">Har prøvd ski litt</option>
-            <option value="nybegynner">Kan gå, men har ingen flyt</option>
-          </select> -->
-
-          <label for="message">Det du lurer på: </label>
-          <textarea id="message" name="message" rows="10" placeholder="Tell us what's on your mind..."></textarea>
-
           <div>
-            <label for="email">Din e-post adressse:</label>
-            <input id="email" type="text" name="email" type="email" value="" required placeholder="your.name@email.com" />
+            <label for="name">Navn: </label>
+            <input id="name" type="text" name="name" placeholder="Navnet du vil bli besvart med" />
+
+            <label for="message">Dette gjelder: </label>
+            <select id="ski_skill" name="ski_skill">
+              <option value="personlig">Meg personlig</option>
+              <option value="bedrift">Bedrifts kurs</option>
+            </select>
+
+            <label for="message">Hva er ferdighetsnivået: </label>
+            <select id="ski_skill" name="ski_skill">
+              <option value="none" selected disabled>-- Velg ferdighetsnivå --</option>
+              <option value="ingen">Har alldri gått på ski</option>
+              <option value="prøvd">Har prøvd ski litt</option>
+              <option value="nybegynner">Kan gå, men har ingen flyt</option>
+            </select>
+
+            <label for="message">Det du lurer på: </label>
+            <textarea id="message" name="message" rows="10" placeholder="Hva er du lurer på?"></textarea>
+
+            <div>
+              <label for="email">Din e-post adressse:</label>
+              <input id="email" type="text" name="email" type="email" value="" required placeholder="Din e-post adresse" />
+            </div>
+            <button class="button-success pure-button button-xlarge"><i class="fa fa-paper-plane"></i>&nbsp;Send</button>
           </div>
-          <button class="button-success pure-button button-xlarge"><i class="fa fa-paper-plane"></i>&nbsp;Send</button>
         </form>
 
         <!-- Customise the Thankyou Message People See when they submit the form: -->
