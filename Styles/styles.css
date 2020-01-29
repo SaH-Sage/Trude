@@ -68,9 +68,7 @@ br {
 /*9*/
 nav {
   display: block;
-  height: none;
   background: #19be9d;
-  margin: 0 0 0 0;
   position: -webkit-sticky;
   position: sticky;
   /* Fiks this*/
@@ -79,6 +77,14 @@ nav {
       -ms-user-select: none;
           user-select: none;
   z-index: 1;
+}
+
+nav div {
+  width: 1323px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
 }
 
 nav ul {
@@ -103,7 +109,7 @@ nav ul li {
 
 nav ul li a {
   display: block;
-  padding: 0.8em 0.1em;
+  padding: 0.7em 0.1em;
   text-align: center;
   font-size: 1.2em;
   color: #fff;
@@ -121,6 +127,114 @@ nav ul li a:hover {
 
 nav ul .active a {
   border-bottom: 0.3em solid #00a2ff;
+}
+
+nav.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background: #19be9d;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  /* Fiks this*/
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 1;
+}
+
+nav.logo ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+nav.logo ul li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+nav.logo ul li a {
+  display: block;
+  padding: 0.7em 0.1em;
+  text-align: center;
+  font-size: 1.2em;
+  color: #fff;
+  background: transparent;
+  z-index: 1;
+  border-bottom: 0.3em solid transparent;
+  border-top: 0.2em solid transparent;
+  -webkit-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
+}
+
+nav.logo ul li a:hover {
+  background: #00a2ff;
+}
+
+nav.logo ul li.left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+nav.logo ul li.left a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  border: none;
+}
+
+nav.logo ul li.left a p {
+  font-size: 1.15em;
+  padding-top: 0.75em;
+  height: 2.25em;
+  font-weight: bolder;
+}
+
+nav.logo ul li.left a img {
+  height: 2.7em;
+  margin-top: 0.2em;
+  fill: #00a2ff;
+}
+
+nav.logo ul li.left a:hover {
+  background: inherit;
+}
+
+nav.logo ul li.left a:hover p {
+  border-bottom: 0.3em solid #00a2ff;
+}
+
+nav.logo ul .active a {
+  border-bottom: 0.3em solid #00a2ff;
+}
+
+nav.logo ul.logo {
+  width: 20%;
 }
 
 div.slideshow-container {
@@ -282,6 +396,8 @@ div.slideshow div {
 div.slideshow img {
   height: 100%;
   max-width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
   margin: 0 auto;
 }
 
@@ -555,7 +671,7 @@ form input[type=text], form select, form textarea {
 }
 
 form option {
-  padding: 5pxm;
+  padding: 1em;
 }
 
 form option[value="none"] {
@@ -682,6 +798,13 @@ footer div.container div div {
   }
   main div.center div.large p {
     width: 95%;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .wrap-medium {
+    font-size: 0.7em;
+    min-width: 300px;
   }
 }
 
