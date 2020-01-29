@@ -50,6 +50,11 @@ br {
   margin: 1em auto;
 }
 
+img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 /*9/            /*12/                                   /*9*/
 /*9*/
 /*9*/
@@ -396,8 +401,6 @@ div.slideshow div {
 div.slideshow img {
   height: 100%;
   max-width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
   margin: 0 auto;
 }
 
@@ -755,7 +758,9 @@ footer div.container div div {
 }
 
 @media screen and (max-width: 1500px) {
-  nav div {width: 100%;}
+  nav div {
+    width: 100%;
+  }
   main div.section {
     width: 100%;
   }
