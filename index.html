@@ -11,15 +11,15 @@
   <body>
     <nav class="logo">
       <div>
-        <ul class="flex1">
-          <li class="left">
+        <ul class="flex1 left">
+          <li>
             <a href="index.html">
-              <img src="/Trude/Images/ski.svg" />
+              <img src="/Images/ski.svg" />
               <p>Trude&#160;Ski</p>
             </a>
           </li>
         </ul>
-        <ul class="flex3">
+        <ul class="flex3 nav-links">
           <li class="active">
             <a href="/index.html">Hjem</a>
           </li>
@@ -33,6 +33,11 @@
             <a href="/contact.html">Kontakt&#160;oss</a>
           </li>
         </ul>
+        <div class="burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
       </div>
     </nav>
 
@@ -40,19 +45,35 @@
     <div class="slideshow-container container-slide-main">
       <div id="slideshow-main" class="slideshow">
         <div class="1">
-          <img alt="et ski bilde" src="https://vismaskiclassics.com/app/uploads/2019/11/mof190111-06448.jpg" />
+          <img alt="et ski bilde" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Cross-Country_skiing_in_Gatineau_Park.jpg/1280px-Cross-Country_skiing_in_Gatineau_Park.jpg" />
           <p></p>
         </div>
         <div class="2">
-          <img alt="et ski bilde" src="https://www.fjordnorway.com/imageresizer/?image=%2Fdbimgs%2FMyrkdalen-Mountain-Resort---Sverre-F.-Hjoernevik-(2).jpg&action=Background_Overlay" />
+          <img alt="et ski bilde" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Cross-country_skiing_%2811821514456%29.jpg/1280px-Cross-country_skiing_%2811821514456%29.jpg" />
           <p></p>
         </div>
         <div class="3">
-          <img alt="et ski bilde" src="https://img3.onthesnow.com/image/gg/97/1_97622.jpg " />
+          <img alt="et ski bilde" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Mustavuori_ski_track_3.jpg/1280px-Mustavuori_ski_track_3.jpg" />
           <p></p>
         </div>
         <div class="4">
-          <img alt="et ski bilde" src="https://www.sarahinthegreen.com/wp-content/uploads/2018/03/Pa%CC%8A-ski-i-Hovden-Norge-3-1.jpg" />
+          <img alt="et ski bilde" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Cross_Country_Skiing_%28Unsplash%29.jpg/1280px-Cross_Country_Skiing_%28Unsplash%29.jpg" />
+          <p></p>
+        </div>
+        <div class="1 mobile">
+          <img alt="et ski bilde" src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Cross-Country_Skiing_at_Kooser_State_Park.jpg" />
+          <p></p>
+        </div>
+        <div class="2 mobile">
+          <img alt="et ski bilde" src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Cross-country-skiing-2-5.jpg" />
+          <p></p>
+        </div>
+        <div class="3 mobile">
+          <img alt="et ski bilde" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Cross-country_skiing_trail.JPG/768px-Cross-country_skiing_trail.JPG" />
+          <p></p>
+        </div>
+        <div class="4 mobile">
+          <img alt="et ski bilde" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/A_cross-country_skiing_track_in_pine_forest_Helsinki.jpg/768px-A_cross-country_skiing_track_in_pine_forest_Helsinki.jpg" />
           <p></p>
         </div>
       </div>
@@ -121,7 +142,7 @@
           </p>
         </div>
 
-        <div class="flex2 wrap-small">
+        <div class="flex2 wrap-medium-small">
           <div>
             <h2>Lorem Ipsum</h2>
             <p>
@@ -148,7 +169,7 @@
 
       <div class="section padding info">
         <div class="flex1 wrap-small">
-          <h2>Opplegget</h2>
+          <h2><img src="/Images/ski-grad.svg" class="svg filter-invert" />Opplegget</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis mi mollis, luctus dolor ut, luctus ligula. Nullam elementum elit viverra, tincidunt ante eget, laoreet ligula. Nullam ultrices quam et ornare gravida. Sed
             dignissim venenatis ante, vel ullamcorper nisi fermentum id. Sed non aliquet ipsum, a efficitur velit. Nullam metus purus, facilisis quis posuere feugiat, consectetur tincidunt lacus. Nunc tempus magna justo, at aliquet felis
@@ -161,7 +182,7 @@
             Quisque consectetur vehicula lectus, vitae aliquet ante auctor nec.
           </p>
         </div>
-        <div class="flex2 wrap-small">
+        <div class="flex2 wrap-medium-small">
           <h2>Kontaktinfo</h2>
           <img class="padding" alt="et vinter bilde" src="https://shawngray.files.wordpress.com/2012/12/winter-sunrise.jpg?w=579" />
           <h2>Treningstider</h2>
@@ -213,7 +234,7 @@
     <footer>
       <div class="container">
         <div>
-          <div class="flex2">
+          <div class="flex2 wrap-small">
             <h3>Kontakt</h3>
             <p>Trude Ski</p>
             <p>
@@ -224,7 +245,9 @@
               Har du spørsmål venligst send en e-post til trude@vesthelse.no
             </p>
           </div>
-          <div class="flex3">
+          <hr class="mobile" />
+          <div class="flex3 wrap-small">
+            <h3>Informasjon</h3>
             <p>
               Pellentesque laoreet leo eu mi mattis, vitae sagittis erat congue. Integer non sodales nunc, non convallis leo. Praesent at metus lorem. Ut eget vulputate metus. Cras consequat, nunc at posuere semper, lorem tortor molestie
               lorem, et posuere nulla nisl nec sapien. Praesent ligula libero, tempor at ornare in, egestas id tellus. Suspendisse eget urna mauris. Aenean tempus dolor at luctus sodales. Quisque ut sem gravida risus mattis tincidunt eu
@@ -241,21 +264,22 @@
       </div>
     </footer>
 
-    <script>
+    <script src="script.js">
       var slideIndex = 0;
       var byting;
-
+      var tidsintervall = 5000;
       // Automatic slide
       window.onload = oppdater;
       function oppdater() {
         byting = setInterval(function() {
           changeSlide(slideIndex++);
-        }, 5000);
+        }, tidsintervall);
         //  window.setInterval(f, 10000);
       }
 
       // Arrows
       function plusSlides(n) {
+        tidsintervall = 10000;
         clearInterval(byting);
         m = slideIndex; // previous slide
         slideIndex += n;
@@ -264,6 +288,7 @@
       }
       // Balls
       function currentSlide(n) {
+        tidsintervall = 10000;
         clearInterval(byting);
         m = slideIndex; //previous slide
         slideIndex = n;
@@ -292,7 +317,7 @@
         slide.classList.add(curentStyle);
         dots[n].className = dots[n].className.replace(" active", "");
         dots[slideIndex].className += " active";
-      }
+      }      
     </script>
   </body>
 </html>
