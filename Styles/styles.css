@@ -70,6 +70,16 @@ img.svg {
           filter: invert(100%);
 }
 
+::-moz-selection {
+  background: #19be9d;
+  color: #fff;
+}
+
+::selection {
+  background: #19be9d;
+  color: #fff;
+}
+
 /*9/            /*12/                                   /*9*/
 /*9*/
 /*9*/
@@ -253,10 +263,11 @@ div.slideshow-container div.nav-dots {
 }
 
 div.slideshow-container div.nav-dots .dot {
+  font-size: 1.2em;
   height: 1em;
   width: 1em;
   margin: 0 0.2em;
-  background: #bbb;
+  background: #9eb3c3;
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
@@ -265,7 +276,7 @@ div.slideshow-container div.nav-dots .dot {
 }
 
 div.slideshow-container div.nav-dots .active {
-  background-color: #567;
+  background-color: #19be9d;
 }
 
 div.slideshow-container .prev, div.slideshow-container .next {
@@ -722,7 +733,7 @@ footer div.container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 2em auto 1.5em auto;
+  margin: 2em auto 1em auto;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -745,6 +756,9 @@ footer div.container div {
 }
 
 footer div.container div div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -770,7 +784,8 @@ footer div.container div div {
     width: 90vw;
   }
   footer div.container {
-    padding: 0 2em;
+    padding: 0 1em;
+    width: 100%;
   }
   footer div.container > div {
     padding: 0 1em;
@@ -787,6 +802,9 @@ footer div.container div div {
   main div.center div.large p {
     width: 80%;
   }
+  form {
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -799,6 +817,9 @@ footer div.container div div {
             align-items: flex-start;
     padding: 0 1em 0 20%;
   }
+  nav.logo ul.left li a {
+    padding-bottom: 0.1em;
+  }
   nav.logo ul.nav-links {
     position: fixed;
     -webkit-box-orient: vertical;
@@ -809,8 +830,8 @@ footer div.container div div {
     width: 100%;
     z-index: 1;
     background: #19be9d;
-    -webkit-clip-path: circle(0px at 94% -10%);
-            clip-path: circle(0px at 94% -10%);
+    -webkit-clip-path: circle(0px at 93% -10%);
+            clip-path: circle(0px at 93% -10%);
     -webkit-transition: -webkit-clip-path 0.8s ease-out;
     transition: -webkit-clip-path 0.8s ease-out;
     transition: clip-path 0.8s ease-out;
@@ -832,7 +853,7 @@ footer div.container div div {
         -ms-flex-align: center;
             align-items: center;
     width: 100%;
-    border: none;
+    border-bottom: none;
   }
   nav.logo ul.nav-links li:nth-child(1) {
     -webkit-transition: all 0.4s ease 0.2s;
@@ -861,8 +882,8 @@ footer div.container div div {
     color: rgba(255, 255, 255, 0.6);
   }
   nav.logo ul.nav-links.open {
-    -webkit-clip-path: circle(1300px at 94% -10%);
-            clip-path: circle(1300px at 94% -10%);
+    -webkit-clip-path: circle(1300px at 93% -10%);
+            clip-path: circle(1300px at 93% -10%);
   }
   nav.logo div.burger {
     display: -webkit-box;
@@ -878,16 +899,16 @@ footer div.container div div {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    padding-right: 2em;
     z-index: 1;
   }
   nav.logo div.burger .line {
     width: 1.7em;
     height: 0.22em;
-    margin: 0.15em 0;
+    margin: 0.15em 2em 0.15em 0;
     background: #fff;
   }
   div.slideshow-container div.nav-dots {
+    font-size: 0.5em;
     bottom: 1.5em;
   }
   div.slideshow div {
@@ -899,10 +920,14 @@ footer div.container div div {
     display: flex;
   }
   main div.center {
-    font-size: 1.3em;
+    font-size: 1.1em;
   }
-  main div.center div.large p {
-    width: 95%;
+  main div.center div p, main div.center div h1, main div.center div h2, main div.center div h3 {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  form {
+    width: 85%;
   }
   hr.mobile {
     display: block;
@@ -911,8 +936,31 @@ footer div.container div div {
 
 @media screen and (max-width: 510px) {
   .wrap-medium {
-    font-size: 0.7em;
-    min-width: 300px;
+    min-width: 280px;
+  }
+  main div.center {
+    font-size: 0.9em;
+  }
+  form {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .wrap-medium {
+    min-width: 250;
+  }
+  .wrap-small {
+    min-width: 250px;
+  }
+  .wrap-medium-small {
+    min-width: 250px;
+  }
+  main div.center {
+    font-size: 0.8em;
+  }
+  nav.logo ul.left li {
+    padding-left: 6vw;
   }
 }
 
