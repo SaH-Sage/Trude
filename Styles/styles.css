@@ -907,10 +907,6 @@ footer div.container div div {
     margin: 0.15em 2em 0.15em 0;
     background: #fff;
   }
-  div.slideshow-container div.nav-dots {
-    font-size: 0.5em;
-    bottom: 1.5em;
-  }
   div.slideshow div {
     display: none;
   }
