@@ -13,22 +13,22 @@
         <ul class="flex1 left">
           <li>
             <a href="index.html">
-              <img src="/Trude/Images/ski.svg" />
+              <img src="/Images/ski.svg" />
               <p>Trude&#160;Ski</p>
             </a>
           </li>
         </ul>
         <ul class="flex3 nav-links">
-          <li>
+          <li class="active">
             <a href="/Trude/index.html">Hjem</a>
           </li>
           <li>
-            <a href="/BasicLanding/about.html">Treninger</a>
+            <a href="/Trude/index.html#Teknikk">Treninger</a>
           </li>
           <li>
-            <a href="/Home/Contact">Om&#160;oss</a>
+            <a href="/Trude/index.html#Bakgrunn">Om&#160;oss</a>
           </li>
-          <li class="active">
+          <li>
             <a href="/Trude/contact.html">Kontakt&#160;oss</a>
           </li>
         </ul>
@@ -46,7 +46,7 @@
             <label for="name">Navn: </label>
             <input id="name" type="text" name="name" placeholder="Navnet du vil bli besvart med" />
 
-            <label for="message">Dette gjelder: </label>
+            <label for="message">Den det gjelder: </label>
             <select id="gjelder" name="ski_skill">
               <option value="personlig">Meg personlig</option>
               <option value="bedrift">Bedrifts kurs</option>
@@ -57,17 +57,17 @@
               <option value="none" selected disabled>-- Velg ferdighetsnivå --</option>
               <option value="ingen">Har alldri gått på ski</option>
               <option value="prøvd">Har prøvd ski litt</option>
-              <option value="nybegynner">Kan gå, men har ingen flyt</option>
+              <option value="nybegynner">Kan gå, men sliter med balansen</option>
             </select>
 
             <label for="message">Det du lurer på: </label>
-            <textarea id="message" name="message" rows="10" placeholder="Hva er du lurer på?"></textarea>
+            <textarea id="message" name="message" rows="10" placeholder="Hva lurer du på?"></textarea>
 
             <div>
               <label for="email">Din e-post adressse:</label>
               <input id="email" type="text" name="email" type="email" value="" required placeholder="Din e-post adresse" />
             </div>
-            <button class="button-success pure-button button-xlarge"><i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+            <button class=""><i class="fa fa-paper-plane"></i>&nbsp;Send</button>
           </div>
         </form>
 
@@ -80,36 +80,24 @@
 
     <script data-cfasync="false" type="text/javascript" src="https://cdn.rawgit.com/dwyl/learn-to-send-email-via-google-script-html-no-server/master/form-submission-handler.js"></script>
     <script src="script.js"></script>
+
     <footer>
-      <div class="container">
-        <div>
-          <div class="flex2 wrap-small">
-            <h3>Kontakt</h3>
-            <p>Trude Ski</p>
-            <p>
-              Tlf. 4444 4444 <br />
-              trude@vesthelse.no
-            </p>
-            <p>
-              Har du spørsmål venligst send en e-post til trude@vesthelse.no
-            </p>
-          </div>
-          <hr class="mobile" />
-          <div class="flex3 wrap-small">
-            <h3>Informasjon</h3>
-            <p>
-              Pellentesque laoreet leo eu mi mattis, vitae sagittis erat congue. Integer non sodales nunc, non convallis leo. Praesent at metus lorem. Ut eget vulputate metus. Cras consequat, nunc at posuere semper, lorem tortor molestie
-              lorem, et posuere nulla nisl nec sapien. Praesent ligula libero, tempor at ornare in, egestas id tellus. Suspendisse eget urna mauris. Aenean tempus dolor at luctus sodales. Quisque ut sem gravida risus mattis tincidunt eu
-              vitae mauris.
-            </p>
-          </div>
-        </div>
-        <hr />
-        <div>
-          <p>
-            © 2020 - Trude Incorporated
-          </p>
-        </div>
+      <div class="container txt-center">
+        <h3><a href="/Trude/kontakt">Kontakt</a></h3>
+        <p>
+          Trude Madsen Svartedal
+          <br />
+          <br />
+          Telefonnummer: 41921919
+          <br />
+          <br />
+          E-post:
+          <br />
+          <br />
+          trude@vesthelse.no
+          <br />
+          trudsva@gmail.com
+        </p>
       </div>
     </footer>
   </body>
