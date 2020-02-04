@@ -311,59 +311,59 @@ div.slideshow-container .prev:hover, div.slideshow-container .next:hover {
 }
 
 div.slideshow-container .slide-0 {
-  margin: 0 0 0 0;
+  margin-left: 0;
 }
 
 div.slideshow-container .slide-1 {
-  margin: 0 0 0 -100%;
+  margin-left: -100%;
 }
 
 div.slideshow-container .slide-2 {
-  margin: 0 0 0 -200%;
+  margin-left: -200%;
 }
 
 div.slideshow-container .slide-3 {
-  margin: 0 0 0 -300%;
+  margin-left: -300%;
 }
 
 div.slideshow-container .slide-4 {
-  margin: 0 0 0 -400%;
+  margin-left: -400%;
 }
 
 div.slideshow-container .slide-5 {
-  margin: 0 0 0 -500%;
+  margin-left: -500%;
 }
 
 div.slideshow-container .slide-6 {
-  margin: 0 0 0 -600%;
+  margin-left: -600%;
 }
 
 div.slideshow-container .slide-7 {
-  margin: 0 0 0 -700%;
+  margin-left: -700%;
 }
 
 div.slideshow-container .slide-8 {
-  margin: 0 0 0 -800%;
+  margin-left: -800%;
 }
 
 div.slideshow-container .slide-9 {
-  margin: 0 0 0 -900%;
+  margin-left: -900%;
 }
 
 div.slideshow-container .slide-10 {
-  margin: 0 0 0 -1000%;
+  margin-left: -1000%;
 }
 
 div.slideshow-container .slide-11 {
-  margin: 0 0 0 -1100%;
+  margin-left: -1100%;
 }
 
 div.slideshow-container .slide-12 {
-  margin: 0 0 0 -1200%;
+  margin-left: -1200%;
 }
 
 div.slideshow-container .slide-13 {
-  margin: 0 0 0 -1300%;
+  margin-left: -1300%;
 }
 
 div.container-slide-main {
@@ -941,6 +941,12 @@ footer div.container div div {
     -webkit-clip-path: circle(1300px at 93% -10%);
             clip-path: circle(1300px at 93% -10%);
   }
+  nav.logo ul.nav-links.open ~ div.burger {
+    position: fixed;
+    right: 0;
+    padding: 1em 2em;
+    width: 5.7em;
+  }
   nav.logo div.burger {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -956,11 +962,12 @@ footer div.container div div {
         -ms-flex-pack: center;
             justify-content: center;
     z-index: 1;
+    padding-right: 2em;
   }
   nav.logo div.burger .line {
     width: 1.7em;
     height: 0.22em;
-    margin: 0.15em 2em 0.15em 0;
+    margin: 0.15em 0em 0.15em 0;
     background: #fff;
   }
   div.slideshow div {
