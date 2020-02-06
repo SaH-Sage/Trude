@@ -906,6 +906,7 @@ footer div.container div div {
     transition: -webkit-clip-path 0.8s ease-out;
     transition: clip-path 0.8s ease-out;
     transition: clip-path 0.8s ease-out, -webkit-clip-path 0.8s ease-out;
+    top: 0;
   }
   nav.logo ul.nav-links li {
     display: -webkit-box;
@@ -958,6 +959,7 @@ footer div.container div div {
   nav.logo ul.nav-links.open ~ div.burger {
     position: fixed;
     right: 0;
+    top: 0;
     width: 5em;
     height: 2.9499em;
   }
@@ -967,12 +969,12 @@ footer div.container div div {
   nav.logo ul.nav-links.open ~ div.burger .line:before {
     -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
-    margin-top: 5%;
+    margin-top: 0%;
   }
   nav.logo ul.nav-links.open ~ div.burger .line:after {
-    -webkit-transform: rotate(135deg);
-            transform: rotate(135deg);
-    margin-top: 5%;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    margin-top: 0%;
   }
   nav.logo div.burger {
     display: -webkit-box;
@@ -997,10 +999,10 @@ footer div.container div div {
     height: 0.2em;
     margin: 0;
     background: #fff;
-    -webkit-transition: -webkit-transform 0.25s;
-    transition: -webkit-transform 0.25s;
-    transition: transform 0.25s;
-    transition: transform 0.25s, -webkit-transform 0.25s;
+    -webkit-transition: margin-top 0.25s, background 0.1s, -webkit-transform 0.25s;
+    transition: margin-top 0.25s, background 0.1s, -webkit-transform 0.25s;
+    transition: transform 0.25s, margin-top 0.25s, background 0.1s;
+    transition: transform 0.25s, margin-top 0.25s, background 0.1s, -webkit-transform 0.25s;
   }
   nav.logo div.burger .line:before, nav.logo div.burger .line:after {
     content: '';
@@ -1034,6 +1036,18 @@ footer div.container div div {
   }
   hr.mobile {
     display: block;
+  }
+  @supports (-ms-ime-align: auto) {
+    nav.logo ul.nav-links {
+      height: 0;
+      opacity: 0;
+    }
+    nav.logo ul.nav-links.open {
+      height: 100vh;
+      opacity: 1;
+      -webkit-clip-path: none !important;
+              clip-path: none !important;
+    }
   }
 }
 
