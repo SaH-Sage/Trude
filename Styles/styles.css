@@ -432,9 +432,8 @@ main div.section {
   width: 100%;
   padding-left: calc(50% - 1470px / 2);
   padding-right: calc(50% - 1470px / 2);
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 main a {
@@ -660,12 +659,6 @@ div.barrier + div.padding {
   -webkit-box-flex: 8;
       -ms-flex: 8;
           flex: 8;
-}
-
-div.flex-between {
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
 }
 
 img.padding {
