@@ -101,6 +101,12 @@ img.plain {
 /*9*/
 /*9*/
 /*9*/
+div.top {
+  width: 1470px;
+  padding: 1em 2em;
+  margin: 0 auto;
+}
+
 nav {
   display: block;
   background: #19be9d;
@@ -176,6 +182,8 @@ nav.logo {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  -webkit-box-shadow: 0 0.2em 0.1em rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.2em 0.1em rgba(0, 0, 0, 0.2);
 }
 
 nav.logo li a {
@@ -740,7 +748,9 @@ span.pressence {
 }
 
 span.link {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin-top: -4em;
   padding-top: 4em;
   height: 0;
@@ -823,6 +833,9 @@ footer div.container div div {
 }
 
 @media screen and (max-width: 1500px) {
+  div.top {
+    width: 100%;
+  }
   nav div {
     width: 100%;
   }
