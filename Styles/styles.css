@@ -144,9 +144,9 @@ nav ul li {
 
 nav ul li a {
   display: block;
+  font-size: 1.2em;
   padding: 0.7em 0.1em;
   text-align: center;
-  font-size: 1.2em;
   color: #fff;
   z-index: 1;
   border-bottom: 0.3em solid transparent;
@@ -871,7 +871,7 @@ footer div.container div div {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    padding: 0 1em 0 20%;
+    padding: 0 1em 0 2em;
   }
   nav.logo ul.left li a {
     padding-bottom: 0.1em;
@@ -944,8 +944,8 @@ footer div.container div div {
   nav.logo ul.nav-links.open ~ div.burger {
     position: fixed;
     right: 0;
-    padding: 1em 2em;
-    width: 5.7em;
+    width: 5em;
+    height: 2.9499em;
   }
   nav.logo div.burger {
     display: -webkit-box;
@@ -962,13 +962,23 @@ footer div.container div div {
         -ms-flex-pack: center;
             justify-content: center;
     z-index: 1;
-    padding-right: 2em;
+    font-size: 1.2em;
+    padding-right: 1.5em;
   }
-  nav.logo div.burger .line {
-    width: 1.7em;
-    height: 0.22em;
-    margin: 0.15em 0em 0.15em 0;
+  nav.logo div.burger .line, nav.logo div.burger .line:before, nav.logo div.burger .line:after {
+    width: 1.5em;
+    height: 0.2em;
+    margin: 0;
     background: #fff;
+  }
+  nav.logo div.burger .line:before, nav.logo div.burger .line:after {
+    content: '';
+  }
+  nav.logo div.burger .line::before {
+    margin: -33.3333% 0 0 0;
+  }
+  nav.logo div.burger .line::after {
+    margin: 33.3333% 0 0 -100%;
   }
   div.slideshow div {
     display: none;
