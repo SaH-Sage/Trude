@@ -947,6 +947,19 @@ footer div.container div div {
     width: 5em;
     height: 2.9499em;
   }
+  nav.logo ul.nav-links.open ~ div.burger .line {
+    background: transparent;
+  }
+  nav.logo ul.nav-links.open ~ div.burger .line:before {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    margin-top: 5%;
+  }
+  nav.logo ul.nav-links.open ~ div.burger .line:after {
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+    margin-top: 5%;
+  }
   nav.logo div.burger {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -970,14 +983,16 @@ footer div.container div div {
     height: 0.2em;
     margin: 0;
     background: #fff;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
   }
   nav.logo div.burger .line:before, nav.logo div.burger .line:after {
     content: '';
   }
-  nav.logo div.burger .line::before {
+  nav.logo div.burger .line:before {
     margin: -33.3333% 0 0 0;
   }
-  nav.logo div.burger .line::after {
+  nav.logo div.burger .line:after {
     margin: 33.3333% 0 0 -100%;
   }
   div.slideshow div {
