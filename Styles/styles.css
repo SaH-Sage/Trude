@@ -394,8 +394,8 @@ div.slideshow div {
   width: 100%;
   -webkit-transition: margin 700ms;
   transition: margin 700ms;
-  -webkit-transition: all .3s;
-  transition: all .3s;
+  -webkit-transition: margin .3s;
+  transition: margin .3s;
 }
 
 div.slideshow img {
@@ -892,23 +892,20 @@ footer div.container div div {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    height: 100vh;
+    height: 0;
     width: 100%;
     z-index: 1;
     background: #19be9d;
-    -webkit-clip-path: circle(0px at 93% -10%);
-            clip-path: circle(0px at 93% -10%);
-    -webkit-transition: -webkit-clip-path 0.8s ease-out;
-    transition: -webkit-clip-path 0.8s ease-out;
-    transition: clip-path 0.8s ease-out;
-    transition: clip-path 0.8s ease-out, -webkit-clip-path 0.8s ease-out;
     top: 0;
+    -webkit-transition: height 0.5s;
+    transition: height 0.5s;
   }
   nav.logo ul.nav-links li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     opacity: 0;
+    overflow: hidden;
   }
   nav.logo ul.nav-links li a {
     display: -webkit-box;
@@ -923,41 +920,30 @@ footer div.container div div {
     border-bottom: none;
   }
   nav.logo ul.nav-links li:nth-child(1) {
-    -webkit-transition: all 0.4s ease 0.2s;
-    transition: all 0.4s ease 0.2s;
+    -webkit-transition: opacity 0.4s ease 0.2s;
+    transition: opacity 0.4s ease 0.2s;
   }
   nav.logo ul.nav-links li:nth-child(2) {
-    -webkit-transition: all 0.4s ease 0.4s;
-    transition: all 0.4s ease 0.4s;
+    -webkit-transition: opacity 0.4s ease 0.4s;
+    transition: opacity 0.4s ease 0.4s;
   }
   nav.logo ul.nav-links li:nth-child(3) {
-    -webkit-transition: all 0.4s ease 0.6s;
-    transition: all 0.4s ease 0.6s;
+    -webkit-transition: opacity 0.4s ease 0.6s;
+    transition: opacity 0.4s ease 0.6s;
   }
   nav.logo ul.nav-links li:nth-child(4) {
-    -webkit-transition: all 0.4s ease 0.75s;
-    transition: all 0.4s ease 0.75s;
+    -webkit-transition: opacity 0.4s ease 0.75s;
+    transition: opacity 0.4s ease 0.75s;
   }
   nav.logo ul.nav-links li:nth-child(5) {
-    -webkit-transition: all 0.4s ease 0.9s;
-    transition: all 0.4s ease 0.9s;
+    -webkit-transition: opacity 0.4s ease 0.9s;
+    transition: opacity 0.4s ease 0.9s;
   }
   nav.logo ul.nav-links li.fade {
     opacity: 1;
   }
-  nav.logo ul.nav-links li.active a {
-    color: rgba(255, 255, 255, 0.6);
-  }
   nav.logo ul.nav-links.open {
-    -webkit-clip-path: circle(1300px at 93% -10%);
-            clip-path: circle(1300px at 93% -10%);
-  }
-  nav.logo ul.nav-links.open ~ div.burger {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 5em;
-    height: 2.9499em;
+    height: 100vh;
   }
   nav.logo ul.nav-links.open ~ div.burger .line {
     background: transparent;
