@@ -13,23 +13,23 @@
         <ul class="flex1 left">
           <li>
             <a href="index.html">
-              <img src="/Trude/Images/ski.svg" />
+              <img src="/Images/ski.svg" />
               <p>Trude&#160;Ski</p>
             </a>
           </li>
         </ul>
         <ul class="flex3 nav-links" onclick="toggleNavMenu();">
           <li class="active">
-            <a href="/Trude/index.html">Hjem</a>
+            <a href="/index.html">Hjem</a>
           </li>
           <li>
-            <a href="/Trude/index.html#Teknikk">Treninger</a>
+            <a href="/index.html#Teknikk">Treninger</a>
           </li>
           <li>
-            <a href="/Trude/index.html#Bakgrunn">Om&#160;meg</a>
+            <a href="/index.html#Bakgrunn">Om&#160;meg</a>
           </li>
           <li>
-            <a href="/Trude/kontakt.html">Kontakt&#160;meg</a>
+            <a href="/kontact.html">Kontakt&#160;meg</a>
           </li>
         </ul>
         <div class="burger" onclick="toggleNavMenu();">
@@ -39,38 +39,39 @@
     </nav>
     <main>
       <div>
-        <form id="gform" method="POST" class="pure-form pure-form-stacked" data-email="from_email@example.com" action="">
+        <form id="kontakt" action="kontaktForm.php" method="POST">
           <div>
             <label for="name">Navn: </label>
-            <input id="name" type="text" name="name" placeholder="Navnet du vil bli besvart med" />
+            <input name="name" type="text" name="name" placeholder="Navnet du vil bli besvart med" />
 
             <label for="message">Den det gjelder: </label>
-            <select id="gjelder" name="ski_skill">
+            <select name="regarding" name="regarding">
               <option value="personlig">Meg personlig</option>
               <option value="bedrift">Bedrifts kurs</option>
             </select>
 
             <label for="message">Hva er ferdighetsnivået: </label>
-            <select id="ski_skill" name="ski_skill">
+            <select name="ability" name="ability">
               <option value="none" selected disabled>-- Velg ferdighetsnivå --</option>
               <option value="ingen">Har alldri gått på ski</option>
-              <option value="prøvd">Har prøvd ski litt</option>
+              <option value="prøvd">Har prøvd litt ski</option>
               <option value="nybegynner">Kan gå, men sliter med balansen</option>
             </select>
 
             <label for="message">Det du lurer på: </label>
-            <textarea id="message" name="message" rows="10" placeholder="Hva lurer du på?"></textarea>
+            <textarea name="message" name="message" rows="10" placeholder="Hva lurer du på?"></textarea>
 
             <div>
               <label for="email">Din e-post adressse:</label>
-              <input id="email" type="text" name="email" type="email" value="" required placeholder="Din e-post adresse" />
+              <input name="email" type="text" name="email" type="email" value="" required placeholder="Din e-post adresse" />
             </div>
-            <button class=""><i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+
+            <button type="submit" name="submit">Send</button>
           </div>
         </form>
 
         <!-- Customise the Thankyou Message People See when they submit the form: -->
-        <div style="display:none;" id="thankyou_message">
+        <div style="display:none;" name="thankyou_message">
           <h2><em>Thanks</em> for contacting us! We will get back to you soon!</h2>
         </div>
       </div>
