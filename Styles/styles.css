@@ -317,62 +317,6 @@ div.slideshow-container .prev:hover, div.slideshow-container .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-div.slideshow-container .slide-0 {
-  margin-left: 0;
-}
-
-div.slideshow-container .slide-1 {
-  margin-left: -100%;
-}
-
-div.slideshow-container .slide-2 {
-  margin-left: -200%;
-}
-
-div.slideshow-container .slide-3 {
-  margin-left: -300%;
-}
-
-div.slideshow-container .slide-4 {
-  margin-left: -400%;
-}
-
-div.slideshow-container .slide-5 {
-  margin-left: -500%;
-}
-
-div.slideshow-container .slide-6 {
-  margin-left: -600%;
-}
-
-div.slideshow-container .slide-7 {
-  margin-left: -700%;
-}
-
-div.slideshow-container .slide-8 {
-  margin-left: -800%;
-}
-
-div.slideshow-container .slide-9 {
-  margin-left: -900%;
-}
-
-div.slideshow-container .slide-10 {
-  margin-left: -1000%;
-}
-
-div.slideshow-container .slide-11 {
-  margin-left: -1100%;
-}
-
-div.slideshow-container .slide-12 {
-  margin-left: -1200%;
-}
-
-div.slideshow-container .slide-13 {
-  margin-left: -1300%;
-}
-
 div.container-slide-main {
   height: 60vh;
   overflow: hidden;
@@ -383,34 +327,41 @@ div.container-slide-main .prev, div.container-slide-main .next {
 }
 
 /* Specific for landing page */
-div.slideshow {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 400%;
-}
-
-div.slideshow div {
+div.slideshow.fade {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   height: 100%;
   width: 100%;
-  -webkit-transition: margin 700ms;
-  transition: margin 700ms;
-  -webkit-transition: margin .3s;
-  transition: margin .3s;
 }
 
-div.slideshow img {
+div.slideshow.fade div {
+  position: absolute;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-transition: margin 700ms;
+  transition: margin 700ms;
+  -webkit-transition: oopacity .3s;
+  transition: oopacity .3s;
+}
+
+div.slideshow.fade img {
   height: 100%;
   max-width: 100%;
   margin: 0 auto;
 }
 
-div.slideshow div.mobile {
+div.slideshow.fade div.active {
+  opacity: 1;
+}
+
+div.slideshow.fade div.mobile {
   display: none;
+}
+
+div.slideshow.fade div.active {
+  opacity: 1;
 }
 
 main {
