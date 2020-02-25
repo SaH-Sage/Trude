@@ -1,0 +1,386 @@
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+$pageWith : 1470px;
+$mainWidth : $pageWith - 50px;  //! Needs to be $pageWithe + margin! 
+$bodypadding : 2em;             //* This is for mobile
+
+$bodyBG : #eee;
+$mainBG : steelblue;
+
+*:before, *:after                           {box-sizing: inherit;                   margin:0;                               padding:0}
+body {position:relative;                   	background: $bodyBG;                    font-size:18px;                         min-height:100%;                         padding: 0 0 0 0;                       font-family: "Helvetica Neue", Arial, sans-serif;} /* Googl fonts*/
+
+hr {display: block;                         position: relative;                     clear: both;                            width: 100%;                             height: 0.14em;                          margin: 1em auto;}
+br {display: block;                         position: relative;                     clear: both;                            width: 100%;                             height: 0.14em;                          margin: 1em auto;}
+hr.mobile {display: none;}
+
+img {object-fit: contain;}
+img.svg {height: 1.5em;                     position: absolute;                     margin: -0.2em 0 0 -1.5em;}
+img.plain {width: 100%;}
+.filter-invert{filter: invert(100%);}
+
+@import './variables';
+::selection {background: $turquoise;  color: #fff;}
+
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} // TODO @include flexCenter
+@mixin findMe($color1, $color2) {
+    color: $color2;
+    background: $color1;
+} // TODO @include findMe(blue, red)
+                            /*9/            /*12/                                   /*9*/                                   /*9*/                                   /*9*/                                   /*9*/                                   /*9*/                     
+  /* Double line break means styling of entierly new element
+      Line brek means new pice of styling of curent group
+        } means jumping back/lower is not child or directly connected to above
+          if no } above, this style is directly connected to above (childe or chare same properties)
+  *//* Phi: 1.61803398875    -   0.80901699437    -    1 - phi = 0.61803398875  --> /2 --> 30.9016994375 (for padding both)*/
+
+
+                            /*9/            /*12/                                   /*9*/                                   /*9*/                                   /*9*/                                   /*9*/                                   /*9*/   
+//*-------------------------- Top --------------------------*/ 
+
+div.top                                     {width: $pageWith;                     padding: 1em 2em;                        margin: 0 auto;}
+
+//*-------------------------- Nav --------------------------*/ 
+$navPadding : 0.7em;
+$navBorderTop : 0.2em;
+$navBorderBottom : 0.3em;
+$navFontSize : 1.2em;
+nav                                         {display: block;                        background: $turquoise;                 user-select: none;                      z-index: 2;//position: sticky;                       top: 0;
+    div                                     {width: 0.9 * $pageWith;                display: flex;                          margin: 0 auto;}
+    ul                                      {display: flex;                         width: 0.9 * $pageWith;                 margin: 0 auto;                         flex-direction: row;                    justify-content: space-around;
+    li                                      {flex: 1;                               
+        a                                   {display: block;                        font-size: $navFontSize;                padding: $navPadding 0.1em;             text-align: center;                     color: #fff;                          
+                                            z-index: 1;                             border-bottom: 0.3em solid transparent; border-top: 0.2em solid transparent;    transition: background 0.3s ease-in-out;
+        &:hover                             {background: $blue;}
+        }
+    }
+    li.active a                              {border-bottom: 0.3em solid $blue;}
+    } // End of ul
+
+    //box-shadow: 0px 0px 2px 4px rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+nav.logo                                    {flex-direction: row;                   justify-content: space-between;         position: sticky;                       top: 0;                                 user-select: none;                      box-shadow: 0 0.2em 0.1em rgba(0,0,0,0.2);
+    li a                                    {border-bottom: $navBorderBottom solid transparent;     border-top: $navBorderTop solid transparent;    transition: background 0.3s ease-in-out;}
+    ul.left                                 {order: -1;}
+    ul.left li                              {display: flex;                         justify-content: space-around;          flex-direction: row;
+        a                                   {display: flex;                         padding: 0;                             border: none;
+            p                               {font-size: 1.15em;                     padding-top: 0.75em;                    height: 2.25em;                         font-weight: bolder;                    border-bottom: 0.3em solid transparent;
+                                            transition: border-bottom 0.3s ease-out;}
+            img                             {height: 2.6em;                         margin-top: 0.25em;}
+        &:hover                             {background: inherit;
+            p                               {border-bottom: 0.3em solid $blue;}
+        }}
+    }
+    div.burger                              {display: none;                         cursor: pointer;}
+} // End of ul
+    //box-shadow: 0px 0px 2px 4px rgba(0,0,0,0.5);
+
+
+//*-------------------------- Slideshow --------------------------*/ 
+div.slideshow-container                     {position: relative;                    display: block;                         width: 100%;                            background: steelblue;
+    div                                     {transition: margin 0.5s ease-in-out;}
+    /* The dots/bullets/indicators */
+    div.nav-dots                            {position: absolute;                    width: 100%;                            bottom: 2em;                            text-align:center;                      font-size: 1em;                         user-select: none; ;
+        .dot                                {font-size: 1.2em;                      height: 1em;                            width: 1em;                             margin: 0 0.2em;                        background: rgb(158, 179, 195);       border-radius: 50%;
+                                             display: inline-block;                 cursor: pointer;                        transition: background-color 0.6s ease;
+        }
+        .active {background-color: $turquoise;}
+    }
+    /* Next & previous buttons */
+    .prev, .next                            {position: absolute;                    font-size: 1.5em;                       padding: 1em;                           margin-top: -1.715em;                   border-radius: 0 0.2em 0.2em 0;                   
+                                            cursor: pointer;                        color: white;                         font-weight: bold;                      user-select: none;                      transition: 0.4s background ease;
+    }
+    /* Position the "next button" to the right */
+    .next                                   {right: 0;                              border-radius: 0.2em 0 0 0.2em;}
+      /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover                {background-color: rgba(0,0,0,0.8);}
+}
+//TODO Make it so that image is veticly aligned in center, so that if it is to hight it "zoomes" in or have it fit
+div.container-slide-main                    {height: 60vh;                          overflow: hidden;                     
+    .prev, .next                            {top: 50%;}
+}
+ /* Specific for landing page */
+div.slideshow.fade                          {display: flex;                         height: 100%;                           width: 100%;                            
+    div                                     {position: absolute;                    opacity: 0;height: 100%;                           width: 100%;                            transition: margin 700ms;               transition: oopacity .3s;}
+    img {                                   height: 100%;                           max-width: 100%;                        margin: 0 auto;} //! max-width er nødvendig for å ikke få overflow! 
+    div.active                              {opacity: 1; }
+
+    div.mobile                              {display: none;} 
+    div.active                              {opacity: 1;}//display: none;}
+}
+
+
+
+
+//*-------------------------- Main --------------------------*/ 
+
+//TODO Lag en Main-Landing som har brede "kort" (ha rødt kort være width: 100%); se på Pavlok - https://pavlok.com/ - https://better.com/
+//TODO Integrer nav med sticky plaserrt som http://www.omtbbl.no/ 
+
+main                                        {position: relative;                    display: flex;                          flex-direction: column;                 width: 100%;                        text-align: justify; //! Yes or NO?                                                   
+                                            background: inherit;                    min-height: 80vh;                       color: #000; // height: null;
+    & > div:first-child                     {padding-top: 2em;}                                  
+    //! Need to fiks; margin need background color
+    div.section                             {width: 100%;                           padding-left: calc(50% - 1470px / 2);   padding-right: calc(50% - 1470px / 2);  justify-content: space-around;}      //! Needs to be $pageWith -!! SCSS canot convert variable?!
+    a                                       {color: $turquoise;                     text-decoration: underline;
+        &:hover                             {text-decoration: dotted underline;}
+    }
+    h1                                      {font-size: 3em;                        padding-bottom: 0.5em;                  text-decoration: underline;}
+    h1,h2,h3,h4,h5                          {text-align: center;                    text-decoration: underline;}
+    p                                       {padding: 1em 0;}
+    //-Fiksing padding anomalies
+    p:first-child                           {padding: 0 0 1em;}
+    p + hr, p + br                          {margin-top: 0;                         padding-top: 0;}                        hr + p, br + p {padding-top: 0;         margin-top: 0;}
+    div                                     {display: flex;                         flex-direction: row;
+        div                                 {flex-direction: column;}
+            div                             {flex-direction: row;}
+                div                         {flex-direction: column;}
+    }
+    div.padding > div                       {padding: 2em 1em;}
+
+    //TODO lag det slik at en kun slenger på forhold for å endre froholdet (høyde bredde - burde kun være å endre paddingen - Fint om det lett fikser evt. bruk av section)
+    div.center                              {position: relative;                    flex-direction: row;                    width: 100%;                            padding: 30.9016994375% 0;              font-size: null;                        text-align: center;
+                                            @include findMe($red, #fff );         min-height: 450px;
+        div                                 {position: absolute;                    width: 100%;                            top: 50%;                               transform:translateY(-50%);}
+        div.large p                         {width: 61.803398875%;                  margin: 0 auto;}
+        
+        h1,h2,h3,p                          {padding: 0.1em 1em 0.3em;}
+    } //TODO lag en som er 100vh
+
+    div.blue                                {background: steelblue;               color: #fff;}
+
+    .info h1,.info h2,.info h3,.info h4     {text-align: center;                    color: $gray;}
+}
+
+//* Rules for flex-ewwrapping - the flex-wrapping is in media-width
+.wrap-small         {min-width: 330px;      max-width: 700px;} //! min-width can not bee wider than when flex-wrap container
+.wrap-medium-small  {min-width: 400px;      max-width: 700px;}
+.wrap-medium        {min-width: 490px;}
+
+div.barrier                                 {width: 100%;                           padding: 2.5em 0;                       background: $turquoise;                 clear: both;}
+div.barrier + div.padding                   {padding-top: 1em;}
+.padding + div.barrier                      {margin-top: 0;}    //- Fikses double padding
+
+        //*----- Html class shortcuts -- //
+.x1     {font-size: 1em;}.x15{font-size: 1.5em;}.x16{font-size: 1.6em;} .x17{font-size: 1.7em;} .x18{font-size: 1.8em;} .x19{font-size: 1.9em;} .x2 {font-size: 2em;}   .x25 {font-size: 25em;}
+.flex1  {flex: 1;}       .flex2 {flex: 2}       .flex3  {flex: 3}       .flex4 {flex: 4}        .flex5 {flex: 5}        .flex6 {flex: 6}        .flex7 {flex: 7}        .flex8 {flex: 8}
+
+img.padding                                 {margin: 1em 0 2em;} //;object-fit: cover;}
+
+$btnAnimation : 0.1s; 
+$btnAnimation : 0.1s; 
+form                                        {width: 70%;                            margin: 0 auto;                         padding: 0.5em 1em;                     font-size: 1.5em;                       @include findMe($blue, white);
+                                            border-radius: 5px;
+    input[type=text], select, textarea      {width: 100%;                           font-size: 0.6em;                       padding: 0.8em 1em;                     margin: 0.5em 0 1.2em 0;                border: 1px solid #ccc;               border-radius: 4px;}
+    option                                  {padding: 1em;}
+    option[value="none"]                    {background-color: #ccc;}
+    button, .btn                            {border-color: rgba(0,0,0,0.2);}
+    input[tupe=text], button, .btn          {font-size: 0.6em;                      padding: 0.9em 1.5em;                   margin: 0.5em 0;                        background-color: $turquoise;           color: white;
+                                            border-width: 0 1px 0.3em;            border-top: none;                       border-radius: 0.2em; // #4CAF50
+
+        &:hover {border-bottom-width: 0.15em;   margin-top: 0.65em; //! margin needs to be the difrence in border-bottom added to initial margin-top - It looks nice if this results in the inital padding(on the sides)
+                    transition: border 0.1s, margin 0.1s;//TODO - maby add BG change
+        }  
+        &:active{border-width: 0; margin: 0.75em 1px;                   margin-bottom: 0.55em;                    } //! For push effect width needs to be reajusted to the borders witdh; ensure that margin hight is right
+}}
+
+//TODO fiks animasjonen her
+// form                                        {width: 70%;                            margin: 0 auto;                         padding: 0.5em 1em;                     font-size: 1.5em;                       @include findMe($blue, white);
+//                                             border-radius: 5px;
+//     input[type=text], select, textarea      {width: 100%;                           font-size: 0.6em;                       padding: 0.8em 1em;                     margin: 0.5em 0 1.2em 0;                border: 1px solid #ccc;               border-radius: 4px;}
+//     option                                  {padding: 1em;}
+//     option[value="none"]                    {background-color: #ccc;}
+//     button, .btn                            {border-color: rgba(0,0,0,0.2);}
+//     input[tupe=text], button, .btn          {font-size: 0.6em;                      padding: 0.9em 1.5em;                   margin: 0.5em 0;                        background-color: $turquoise;           color: white;
+//                                             border-width: 0 1px 0.3em;            border-top: none;                       border-radius: 0.2em; // #4CAF50
+
+//         &:hover {border-bottom-width: 0.15em;   margin-top: 0.65em; //! margin needs to be the difrence in border-bottom added to initial margin-top - It looks nice if this results in the inital padding(on the sides)
+//                     transition: border 0.1s, margin 0.1s;//TODO - maby add BG change
+//         }  
+//         &:active{border-width: 0; margin: 0.75em 1px;                   margin-bottom: 0.55em;                    } //! For push effect width needs to be reajusted to the borders witdh; ensure that margin hight is right
+// }}
+
+// button, .btn                                {font-size: 0.6em;                      padding: 0.9em 1.5em;                   margin: 0.5em 0 0.5em 0;                background-color: $turquoise;           color: white;                         cursor: pointer;// #4CAF50
+//                                             border: 0em solid rgba(0,0,0,0.2);    border-width: 0 1px 0 1px;              border-bottom-width: 0.35em;            border-radius: 0.4em;                   font-weight: bold;                      transition: margin $btnAnimation, border $btnAnimation;
+//                                                 &:hover {border-bottom-width: 0.20em;margin: 0.65em 0 0.5em 0;}  
+//                                                 &:active{border: 0;                 margin: 0.75em 1px 0.6em;} //! For push effect width needs to be reajusted to the borders witdh; ensure that margin hight bottom is equvalen to normal(+ present margin) border bottom
+//                     //TODO legg til pyramide knapp; mørkere/lysre på sidene
+// }
+
+//*-------------------------- universal --------------------------*/ 
+
+input[type=submit], button                  {border: 10px solid #fff;             border-top-width: 0px;                  border-right-width: 1px;                border-bottom-width: 5px;               border-left-width: 1px;}
+
+div.txt-center  {text-align: center;}
+span.pressence  {font-weight: bolder;       font-size: 1.5em;}
+
+//* This takes care of anchor links with sticky NAV*/
+span.link       {display: flex;             margin-top: -5em;                       padding-top: 5em;                       height: 0;}  //! margin and padding needs to be same to cancel each other out
+
+
+//*-------------------------- Footer --------------------------*/ 
+
+footer                                      {position: relative;                    display: flex;                          bottom: 0;                              left:0;                                 margin: 1.5em 0 0 0;                    background: #333;  
+                                             width: 100%;                           min-height: 12em;                       padding: 0;                             font-size: 1em;	                        color: #fff;                          line-height: 1.21em;
+    a                                       {color: white;                        text-decoration: underline;}
+    &:hover {
+        background: $blue;
+        a:hover {text-decoration: dotted underline;}
+    }
+
+    h1,h2,h3,h4,h5                          {padding: 0 1em 1em 0;}
+    p                                       {padding: 0 1em 1em 0;}
+    div.container                           {width: $pageWith;                      display: flex;                          margin: 2em auto 1em auto;              flex-direction: column;                 padding: 0 1em;
+        div                                 {display: flex;                         flex-direction: row;                    flex-wrap: wrap;                        padding-top: 1em;                       color: #fff;
+            div                             {display: flex;                         flex-direction: column;}
+        }
+    }
+}
+
+//*-------------------------- Media width --------------------------*/ 
+@media screen and (max-width:1500px){
+    div.top {width: 100%;}
+    nav div {width: 100%;}
+    main div.section                        {width: 100%;
+        & > div                             {padding-left: $bodypadding;            padding-right: $bodypadding;}
+        & > div.center                      {padding-left: 0;                       padding-right: 0;}  //Not ideal, but fikses it
+    }
+    nav ul                                  {width: 90vw;}
+    footer div.container                    {padding: 0 $bodypadding / 2;           width: 100%;
+        
+        & > div                             {padding: 0 1em;}
+    }
+    form {width: 80%; }
+}
+@media screen and (max-width:1024px){
+
+    //Fikses content so that they flow to a new line
+    .padding        {flex-wrap: wrap;       justify-content: space-around}  
+    
+    main div.center {
+        div.large p                         {width: 80%;}
+    }
+    
+    form {width: 85%; }
+    
+}
+@media screen and (max-width:768px){
+
+$navAnimationTime : 0.5s;
+    //*  Navigation *//
+    nav.logo {
+        ul.left                             {opacity: 1;                            transition: opacity $navAnimationTime;} //for animating the "z-index"
+        ul.left li                          {justify-content: space-between;        align-items: flex-start;                padding: 0 1em 0 2em;
+            a img                           {padding: 0.1em 0;}
+        }
+        ul.nav-links                        {position: fixed;                       flex-direction: column;                 height: 0vh;                            width: 100%;                            z-index: 3;                                 background: $turquoise;
+                                            top:0;                                  transition: height $navAnimationTime, margin $navAnimationTime; //! clip-path: circle(0px at 93% -10%);     transition: clip-path 0.8s ease-out;    top: 0; //top: 0 for firefox                          
+            li                              {display: flex;                         opacity: 0;                             overflow: hidden; //! Need overflow hidden as I cannot use clip-path.
+                a                           {display: flex;                         justify-content: space-around;          align-items: center;                    width: 100%;                            border-bottom: none;
+                                            color: transparent;                     transition: color 0.1s;
+                }
+                &:nth-child(1)              {transition: opacity 0.4s ease 0.2s, }
+                &:nth-child(2)              {transition: opacity 0.4s ease 0.4s,}
+                &:nth-child(3)              {transition: opacity 0.4s ease 0.6s,}
+                &:nth-child(4)              {transition: opacity 0.4s ease 0.75s,}
+                &:nth-child(5)              {transition: opacity 0.4s ease 0.9s, }
+            }
+            li.fade                         {opacity: 1;                            
+            //     a                           {color: fff;}
+            } //TODO Hvorfor fungerer dette ikke?!
+            z-index: 0; //Makes it go back underneeth
+        }
+        ul.nav-links.open + ul              {opacity: 0;}
+        ul.nav-links.open                   {height: 100vh;//clip-path: circle(1300px at 93% -10%)}
+            li.active a                     {color: rgba(255, 255, 255, 0.6)}
+            li.active ~ li a                {color: rgba(255, 255, 255, 1)}
+            z-index: 2;
+        }
+        ul.nav-links.open ~ div.burger      {right: 0;                               top: 0;                                 width: 4em;                                 //! Important that width is padding + width of line or just what feels natural 
+            & .line                         {background: transparent;}
+            & .line:before                  {transform: rotate(45deg);              margin-top: 0%;}
+            & .line:after                   {transform: rotate(-45deg);             margin-top: 0%;}
+        } 
+        div.burger                          {display: flex;                         align-items: flex-end;                  flex-direction: column;                 justify-content: center;                z-index: 2;                             
+                                             font-size: $navFontSize;               padding-right: 1.5em;                                       
+            .line, .line:before, .line:after{width: 1.5em;                          height: 0.2em;                          margin: 0 0 0 0;                        background: #fff;                     transition: transform 0.25s, margin-top 0.25s, background 0.1s;}  
+            .line:before, .line:after       {content: '';}
+            .line:before {margin: -33.3333% 0 0 0;}
+            .line:after  {margin: 33.3333% 0 0 -100%;}
+        }
+    }
+    //* Misc *//
+    //div.slideshow-container div.nav-dots    {font-size: 1em;                        bottom: 2em;}
+    //div.container-slide-main {height: 65vh;}
+    div.slideshow{                        
+        div         {display: none;}
+        div.mobile  {display: flex;}
+    }
+
+    main            {text-align: center;}
+    main div.center {font-size: 1.1em;
+        div { p,h1,h2,h3 {padding-left: 8%; padding-right: 8%;}
+        }
+    }  
+    
+    form {width: 100%; }
+
+    hr.mobile   {display: block;}
+
+    //! STUPID EDJE
+    @supports (-ms-ime-align: auto) {
+        nav.logo ul.nav-links               {height: 0;                             opacity: 0;}
+
+        nav.logo ul.nav-links.open          {height: 100vh;                         opacity: 1;                                 clip-path: none !important;}
+
+    }
+}
+@media screen and (max-width:510px){
+    main h1 {font-size: 2.4em;}
+
+    .wrap-medium{min-width: 280px;}
+    main div.center {font-size: 0.9em;} 
+
+}
+@media screen and (max-width:430px){
+    main h1 {font-size: 2em;}
+
+    //* Verry esential for avoiding overflow *//
+    .wrap-medium{min-width: 250;} 
+    .wrap-small{min-width: 250px;} 
+    .wrap-medium-small{min-width: 250px;} 
+
+    main div.center {font-size: 0.8em;}
+
+    nav.logo ul.left li {padding-left: 6vw;}
+}
+
+//*-------------------------- Testing --------------------------*/ 
+
+.gold {@include findMe($gold, $turquoise)}
+.blue {@include findMe(blue, $red)}
+.green {@include findMe(green, yellow)}
+.red {@include findMe($red, #fff)}
